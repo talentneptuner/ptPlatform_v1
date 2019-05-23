@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>图像文本标记平台</title>
+
+    <meta name="description" content="Source code generated using layoutit.com">
+    <meta name="author" content="LayoutIt!">
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            border: none;
+            right: 0;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container-fluid" style="padding-left: 0;padding-right: 0; margin-right: 0">
+    <div class="row">
+        <div class="col-md-12" style="width: 100%">
+            <nav class="navbar navbar-toggleable-md navbar-light mainnav" style="width: 100%;">
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <a class="navbar-brand" href="#"><strong class="mainTitle">图像文本标注平台</strong></a>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+                    <ul class="navbar-nav ml-md-auto">
+
+                        <li class="nav-item dropdown light-text">
+                            <a class="nav-link dropdown-toggle light-text" href="" id="navbarDropdownMenuLink"
+                               data-toggle="dropdown"><span style="color: white">{{ user.username }}</span></a>
+                            <div class="dropdown-menu dropdown-menu-right" style="background-color: #19233C;"
+                                 aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item dropitem" id="mylabel"><span
+                                        style="color: white">标记情况</span></a>
+                                <a class="dropdown-item dropitem" href="{% url 'logout' %}"><span style="color: white">登出</span></a>
+
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="list-group mainleft" id="left">
+                <span href="#" class="list-group-item list-group-item-action  mainleftTitle NoRa"><strong
+                        style="color: white;font-family: Microsoft YaHei UI;font-size: large">图像数字标注平台</strong></span>
+                <span href="#" class="list-group-item list-group-item-action Nodeactive  NoRa"><span
+                        style="color: white">我的任务</span></span>
+                <div class="list-group-item justify-content-between mainleftNode NoRa">
+                    <span style="color: white">个人信息</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-10" style="margin-top: 20px;margin-right: 0">
+            <div class="alert alert-danger alert-dismissable" style="margin-right: 20px">
+                <button type="button" class="close" data-dismiss="alert"
+                        aria-hidden="true">
+                    &times;
+                </button>
+                请务必于标注前查看标注选项的左侧标注说明信息
+            </div>
+            <div class="row">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-5">
+                    <dl>
+                        <dt class="labelTitle">
+                            文本信息：
+                        </dt>
+                        <dd class="labelText">
+                            <p style="justify-content: center" id="labelText">#台风山竹#
+                                今年第22号台风山竹在比基尼环礁以北附近洋面上生成。未来将向偏西方向移动，穿越马里亚纳群岛后进入吕宋岛以东洋面。 2南京·南京大学(仙林校区) </p>​
+                        </dd>
+                    </dl>
+                    <div class="row">
+                        <div class="col-md-6">
+
+
+                        </div>
+                        <div class="col-md-6">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5" style="margin-left: 10px">
+                    <dt class="labelTitle">
+                        图像信息<span style="font-size: 12px">图像太长请点击打开</span>：
+                    </dt>
+                    <dl>
+                        <img id="labelImg" class="labelImage" alt="待标注图片"
+                             src="{% static './image/4283817327863196-0.jpg' %}">
+                        <div class="modal fade " id="imageModal" tabindex="-1" role="dialog"
+                             aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog admodal">
+                                <div class="modal-content admodal">
+                                    <div class="modal-header admodal">
+                                        <h4 class="modal-title light-text" id="imagetitle">
+                                            图片详情
+                                        </h4>
+                                        <button type="button" class="close light-text" data-dismiss="modal"
+                                                aria-hidden="true">
+                                            &times;
+                                        </button>
+
+                                    </div>
+                                    <div class="modal-body imgmodelc light-text"
+                                         style="display:flex;justify-content: center">
+                                        <img id="labelImgM" class="imgModal" alt="待标注图片"
+                                             src="{% static './image/4283817327863196-0.jpg' %}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </dl>
+
+                </div>
+                <div class="col-md-1">
+                </div>
+            </div>
+            <hr>
+            <div class="row" style="margin-top: 15px">
+                <div class="col-md-1">
+                    <a style="font-size: small" id="showModal">点击查看标注说明</a>
+                    <span></span>
+                    <div class="modal fade " id="adModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog admodal">
+                            <div class="modal-content admodal">
+                                <div class="modal-header admodal">
+                                    <h4 class="modal-title light-text" id="myModalLabel">
+                                        标注说明!!
+                                    </h4>
+                                    <button type="button" class="close light-text" data-dismiss="modal"
+                                            aria-hidden="true">
+                                        &times;
+                                    </button>
+
+                                </div>
+                                <div class="modal-body light-text"
+                                     style="word-wrap: break-word;word-break: keep-all;overflow: hidden">
+                                    请结合图片和文本选择最合适的一到三个选项，如果不确定尽量不选<br>
+                                    选择完成后方可选择下一份<br>
+                                    有实在无法确定的，可以点击暂时跳过待日后讨论<br>
+                                    标注过程请勿刷新，可以选择登出再登录
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <h5>选项介绍</h5><br>
+                                    {% for cat in cats %}
+                                        {% for cat_s in cat.get_sub_cat %}
+                                            <strong>{{ cat.name }}>>{{ cat_s.name }}</strong>:<br>
+                                            {{ cat_s.desc }}<br>
+                                            <br>
+                                        {% endfor %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    {% for cat in cats %}
+                        <div class="row">
+                            <div class="col-md-4"><span>{{ cat.name }}</span></div>
+                            <div class="col-md-8">
+                                {% for cat_s in cat.get_sub_cat %}
+                                    <label style="margin-right: 15px"><input type="checkbox" name="cas" value="{{ cat_s.id }}"
+                                                  >{{ cat_s.name }}</label>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <hr>
+                    {% endfor %}
+                </div>
+                <div class="col-md-2 ">
+                    <div class="col-md-12">
+                        <input id="lid" value="" hidden>
+                        <textarea rows="3" style="margin-bottom: 5px" id="objects" type="text" class="form-control"
+                                  placeholder="在这里输入对象，若存在对象相关，/隔开对象" value=""></textarea>
+                        <input type="button" id="subLabel" class="btn btn-primary nextbutton" value="下一份">
+                        <input title="点击可以暂时跳过，但是下次登陆依然会优先展示" type="button" style="margin-top: 2px" id="skip" class="btn btn-primary nextbutton" value="暂时跳过">
+                    </div>
+                </div>
+                <div class="col-md-1 "></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/scripts.js' %}"></script>
+<script>
+
+    var unlabeled_ids;
+
+    function get_unlabeled() {
+        $.ajax({
+            cache: false,
+            type: 'GET',
+            url: "{% url 'get_unlabeled' %}",
+            async: false,
+            success: function (data) {
+                unlabeled_ids = data
+                // console.log(unlabeled_ids)
+            }
+        })
+    }
+
+
+    function next_item(label_id) {
+        $.ajax({
+            cache: false,
+            type: 'GET',
+            url: "{% url 'next_item'  %}",
+            data: {'label_id': label_id},
+            async: true,
+            beforeSend: function (xhr, settings) {
+                xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+            },
+            success: function (data) {
+                // console.log(data);
+                $('#labelImg').attr('src', "{{ MEDIA_URL }}/Image/" + data.image);
+                $('#labelImgM').attr('src', "{{ MEDIA_URL }}/Image/" + data.image);
+                $('#lid').val(data.id);
+                $('#labelText').text(data.text);
+            }
+        })
+    }
+
+    $('#subLabel').on("click", function () {
+        var id = $('#lid').val();
+        var objects_list = $('#objects').val();
+        var label_r = $("input[name='cas']:checked");
+        var values = [];
+        for (let i = 0; i < label_r.length; i++)
+            values.push(label_r[i].value);
+        if (values.length > 3) {
+            alert('所选个数不得超过3个');
+            return
+        }
+        if (values.length < 1) {
+            alert('你还未标记');
+            return
+        }
+        if (((values.indexOf('8') > -1)||(values.indexOf('9') > -1)) && (values.length > 1)) {
+            alert('不相关不可以和其他一起选择');
+            return
+        }
+        console.log(id);
+        console.log(values);
+        // alert(label_r)
+        if (!label_r) {
+            alert('你还未标记');
+            return;
+        }
+        $.ajax({
+                cache: false,
+                type: "POST",
+                url: "{% url 'label_item' %}",
+                data: {'id': id, 'label': values, 'objects_list': objects_list},
+                async: true,
+                beforeSend: function (xhr, settings) {
+                    xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+                },
+                success: function (data) {
+                    if (data.status == 'fail') {
+                        alert('出现错误，请登出并告诉管理员');
+                        return
+                    }
+                    if (unlabeled_ids.length == 0) {
+                        alert('你的标注任务已完成');
+                        window.location.href = ''
+                    }
+                    let label_id = unlabeled_ids.pop();
+                    next_item(label_id);
+                    $("input[name='cas']:checked").prop('checked', false)
+                    $('#objects').val('')
+                },
+
+            }
+        )
+    })
+    $('#skip').on("click",function () {
+        let label_id = unlabeled_ids.pop();
+        next_item(label_id);
+        $("input[name='cas']:checked").prop('checked', false)
+        $('#objects').val('')
+    })
+</script>
+<script>
+    $(document).ready(function () {
+        window_height = $(window).height();
+        height = window_height;
+        $('#left').css({'height': height + 'px'});
+        get_unlabeled();
+        if (unlabeled_ids.length == 0) {
+            alert('你的标注任务已完成');
+            window.location.href = ''
+        }
+        let label_id = unlabeled_ids.pop();
+        next_item(label_id);
+    });
+
+    $('#showModal').click(function () {
+        $('#adModal').modal('show')
+    });
+    $('#labelImg').click(function () {
+        $('#imageModal').modal('show')
+    });
+    $('#mylabel').click(function () {
+        $.ajax({
+            cache: false,
+            type: 'GET',
+            url: "{% url 'status'  %}",
+            async: true,
+            beforeSend: function (xhr, settings) {
+                xhr.setRequestHeader("X-CSRFToken", "{{ csrf_token }}");
+            },
+            success: function (data) {
+                // console.log(data);
+                let text = '你已标记' + data.label_nums + '\n' + '还需标记' + data.unlabel_nums;
+                alert(text)
+            }
+        })
+    })
+
+</script>
+</body>
+</html>

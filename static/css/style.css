@@ -1,0 +1,160 @@
+@keyframes fade-in {
+    0%{opacity: 0;}
+    40%{opacity: 0;}
+    100%{opacity: 0;}
+}
+
+@font-face {
+    font-family: qlt;
+    src: url("../fonts/qlt.ttf");
+}
+
+.loginContainer{
+    display: flex;
+    justify-content: center;
+}
+.loginForm{
+    width: 460px;
+    background: white;
+    position: absolute;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+    animation: fade-in;
+    animation-duration: 1s;
+}
+
+.loginFormGroup{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.loginFormBox{
+    border-top: None;
+    border-left: none;
+    border-right: none;
+}
+
+.loginFormBtn{
+    border-radius: 3px;
+    background-color: #0084ff;
+    border: none;
+}
+
+.loginFormTitle{
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 20px;
+}
+
+.mainnav{
+    background-color: #19233C;
+    height: 56px;
+    /*position: fixed;*/
+    /*left: 0;*/
+    /*right: 0;*/
+}
+.mainTitle{
+    color: white;
+    font-family: "Microsoft YaHei UI";
+}
+
+.mainleft{
+    border-radius: 0;
+    height: 100%;
+    background-color: #19233C;
+    width: 225px;
+    position: fixed;
+    left: 0;
+    top: 0px;
+    /*z-index: -1;*/
+}
+
+.mainleftNode{
+    background-color: #19233C ;
+    text-align: center;
+    border-radius: 0;
+    border: none;
+}
+.mainleftNode:hover{
+    background-color: #19220C;
+}
+.mainleftTitle{
+    background-color: #19233C ;
+    text-align: center;
+    border-radius: 0;
+    border: none;
+}
+.mainleftTitle:hover{
+    background-color: #19233C ;
+}
+.Nodeactive{
+    background-color: #19232C;
+    border-radius: 0px;
+    border: none;
+}
+.Nodeactive:hover{
+    background-color: #19232C;
+}
+
+.NoRa{
+    border-radius: 0;
+}
+.labelTitle{
+    font-size: 20px;
+    font-family: Arial;
+    margin-bottom: 10px;
+}
+
+.labelImage{
+    max-width: 350px;
+    max-height: 468px;
+    height: auto;
+    width: auto;
+}
+.imgModal{
+    max-width: 400px;
+    height: auto;
+}
+
+.labelText{
+    text-align: justify;
+    text-indent: 2em;
+    line-height: 1.5em;
+    font-family: Arial;
+}
+
+.labelAns{
+    margin-right: 5px;
+}
+
+.dropitem{
+
+}
+.dropitem:hover{
+    background-color: #19220C;
+}
+
+.admodal{
+    background-color: #19233C;
+    border-radius: 0;
+    border: none;
+}
+
+.imgmodelc{
+
+}
+.light-text{
+    color: white;
+    font-family: Arial;
+}
+
+.nextbutton{
+    background-color: #19233C;
+    border-radius: 0;
+    width: 100%;
+    border: none;
+}
+.nextbutton:hover{
+    background-color: #19220C;
+}
